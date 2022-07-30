@@ -19,7 +19,6 @@ export class PlanetListComponent implements OnInit{
     }
 
     async fetchPlanets(){
-        console.log("Fetching Planets");
         try {
             let page : number = 1;
             let response = await fetch(`https://swapi.dev/api/planets/?page=${page}`);

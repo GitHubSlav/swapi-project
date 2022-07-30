@@ -1,6 +1,6 @@
 <div class="planet-list" *ngIf="isLoaded">
     <planet-li *ngFor="let planet of planets; index as i"
-        [planet_id]="i"
+        [planet_id]="i + 1"
         [planet_info]="planet"
     ></planet-li>
 </div>

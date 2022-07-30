@@ -1,0 +1,17 @@
+<div class="character-list" *ngIf="isLoaded">
+    <header class="header">
+        <planet-p [planet_info]="planet"></planet-p>
+    </header>
+    <div class="filtering-panel">
+        <label for="gender-select">Gender:</label>
+        <select id="gender-select" [(ngModel)]="gender">
+            <option value="any">Any</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="n/a">N/A</option>
+        </select>
+    </div>
+    <character-li *ngFor="let character of characters"
+        [character_info]="character"
+    ></character-li>
+</div>

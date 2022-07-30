@@ -1,0 +1,27 @@
+.character {
+    width: 17rem;
+    height: 20rem;
+    margin-top: 2rem;
+    padding: 0rem 2rem;
+
+    border: 0.2rem solid #1AF;
+    color: #1AF;
+    background-color: #113;
+    border-radius: 1rem;
+}
+
+td {
+    border: 1px solid #1AF;
+    padding: 5px 10px;
+    border-spacing: 5px;
+}
+
+td:first-child {
+    vertical-align: top;
+    width: 7rem;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+}

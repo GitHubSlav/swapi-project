@@ -1,5 +1,5 @@
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { PlanetListModule } from './app/PlanetList/planetList.module';
+import { AppModule } from './app/app/app.module';
 
 const platform = platformBrowserDynamic();
-platform.bootstrapModule(PlanetListModule);
+platform.bootstrapModule(AppModule);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AnyARecord } from "dns";
+import { ActivatedRoute } from '@angular/router';
 
 @Component ({
     selector : "character-list",
@@ -10,6 +10,7 @@ import { AnyARecord } from "dns";
 export class CharacterListComponent implements OnInit{
     private _characters : Array<any> = [];
     private _planet : any;
+    private _planet_id : number | undefined;
     private _isLoaded : boolean = false;
     gender : string = "any";
 
@@ -30,11 +31,19 @@ export class CharacterListComponent implements OnInit{
         return this._isLoaded;
     }
 
+    constructor(private route: ActivatedRoute){
+        this.route.params.subscribe(
+            params => {
+                this._planet_id = params["id"];
+            }
+        );
+    }
+
     ngOnInit(): void {
         fetch("data/planets.json")
         .then((response) => response.json())
         .then((response) => {
-                this._planet = response.results[0];
+                this._planet = response.results[this._planet_id];
             }
         )
         .catch(

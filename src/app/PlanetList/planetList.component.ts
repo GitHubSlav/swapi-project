@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { IPlanet } from "../models/IPlanet";
 
 @Component ({
     selector : "planet-list",
@@ -7,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class PlanetListComponent implements OnInit{
-    private _planets : Array<any> = [];
+    private _planets : Array<IPlanet> = [];
     private _isLoaded : boolean = false;
 
     get planets(){

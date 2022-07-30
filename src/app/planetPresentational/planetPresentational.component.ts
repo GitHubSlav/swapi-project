@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { IPlanet } from "../models/IPlanet";
 
 @Component ({
     selector : "planet-p",
@@ -7,5 +8,5 @@ import { Component, Input } from "@angular/core";
 })
 
 export class PlanetPresentationalComponent {
-    @Input() planet_info : any;
+    @Input() planet_info : IPlanet;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
+import { ICharacter } from "./../models/ICharacter";
+import { IPlanet } from "../models/IPlanet";
 
 @Component ({
     selector : "character-list",
@@ -8,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class CharacterListComponent implements OnInit{
-    private _characters : Array<any> = [];
-    private _planet : any;
+    private _characters : Array<ICharacter> = [];
+    private _planet : IPlanet;
     private _planet_id : number | undefined;
     private _isLoaded : boolean = false;
     gender : string = "any";

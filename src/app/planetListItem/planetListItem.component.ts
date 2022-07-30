@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { IPlanet } from "../models/IPlanet";
 
 @Component ({
     selector : "planet-li",
@@ -10,7 +11,7 @@ export class PlanetListItemComponent {
     private _isBlinking : boolean = false;
 
     @Input() planet_id : number;
-    @Input() planet_info : any;
+    @Input() planet_info : IPlanet;
 
     get routerLink(){
         return ["planets", this.planet_id];

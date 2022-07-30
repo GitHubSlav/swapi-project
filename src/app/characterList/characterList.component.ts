@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
+import { ICharacter } from "./../models/ICharacter";
+import { IPlanet } from "../models/IPlanet";
 
 @Component ({
     selector : "character-list",
@@ -8,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class CharacterListComponent implements OnInit{
-    private _characters : Array<any> = [];
-    private _planet : any;
+    private _characters : Array<ICharacter> = [];
+    private _planet : IPlanet;
     private _planet_id : number | undefined;
     private _isLoaded : boolean = false;
     gender : string = "any";
@@ -39,30 +41,25 @@ export class CharacterListComponent implements OnInit{
         );
     }
 
-    ngOnInit(): void {
-        fetch("data/planets.json")
-        .then((response) => response.json())
-        .then((response) => {
-                this._planet = response.results[this._planet_id];
-            }
-        )
-        .catch(
-            (error) => {
-                console.log(error);
-            }
-        );
+    async fetchCharacters(){
+        try {
+            let response : any = await fetch(`https://swapi.dev/api/planets/${this._planet_id}`);
+            this._planet = await response.json();
 
-        fetch("data/people.json")
-        .then((response) => response.json())
-        .then((response) => {
-                this._characters = response.results;
-                this._isLoaded = true;
+            for (let i = 0; i < this._planet.residents.length; i++){
+                response = await fetch(this._planet.residents[i]);
+                let responseJSON = await response.json();
+                this._characters.push(responseJSON);
             }
-        )
-        .catch(
-            (error) => {
-                console.log(error);
-            }
-        );
+
+            this._isLoaded = true;
+        }
+        catch(error) {
+            console.log(error);
+        }
+    }
+
+    ngOnInit(): void {
+        this.fetchCharacters();
     }
 }

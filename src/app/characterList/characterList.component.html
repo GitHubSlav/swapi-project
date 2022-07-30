@@ -15,3 +15,6 @@
         [character_info]="character"
     ></character-li>
 </div>
+<div *ngIf="!isLoaded">
+    <loading-bar></loading-bar>
+</div>

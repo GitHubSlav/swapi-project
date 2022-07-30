@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { ICharacter } from "./../models/ICharacter";
 
 @Component ({
     selector : "character-li",
@@ -7,5 +8,5 @@ import { Component, Input } from "@angular/core";
 })
 
 export class CharacterListItemComponent {
-    @Input() character_info : any;
+    @Input() character_info : ICharacter;
 }

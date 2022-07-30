@@ -9,6 +9,7 @@ import { PlanetListItemComponent } from "../planetListItem/planetListItem.compon
 import { CharacterListComponent } from '../characterList/characterList.component';
 import { CharacterListItemComponent } from '../characterListItem/characterListItem.component';
 import { PlanetPresentationalComponent } from '../planetPresentational/planetPresentational.component';
+import { LoadingBarComponent } from '../loadingBar/loadingBar.component';
 
 const appRoutes: Routes = [
     { path: '', component: PlanetListComponent},
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent, PlanetListComponent, 
         PlanetListItemComponent, CharacterListComponent, 
-        CharacterListItemComponent, 
+        CharacterListItemComponent, LoadingBarComponent,
         PlanetPresentationalComponent
     ],
     bootstrap: [AppComponent]

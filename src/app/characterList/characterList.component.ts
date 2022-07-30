@@ -34,35 +34,31 @@ export class CharacterListComponent implements OnInit{
     constructor(private route: ActivatedRoute){
         this.route.params.subscribe(
             params => {
-                this._planet_id = params["id"];
+                this._planet_id = params["id"] + 1;
             }
         );
     }
 
-    ngOnInit(): void {
-        fetch("data/planets.json")
-        .then((response) => response.json())
-        .then((response) => {
-                this._planet = response.results[this._planet_id];
-            }
-        )
-        .catch(
-            (error) => {
-                console.log(error);
-            }
-        );
+    async fetchCharacters(){
+        console.log("Fetching Characters");
+        try {
+            let response : any = await fetch(`https://swapi.dev/api/planets/${this._planet_id}`);
+            this._planet = await response.json();
 
-        fetch("data/people.json")
-        .then((response) => response.json())
-        .then((response) => {
-                this._characters = response.results;
-                this._isLoaded = true;
+            for (let i = 0; i < this._planet.residents.length; i++){
+                response = await fetch(this._planet.residents[i]);
+                let responseJSON = await response.json();
+                this._characters.push(responseJSON);
             }
-        )
-        .catch(
-            (error) => {
-                console.log(error);
-            }
-        );
+
+            this._isLoaded = true;
+        }
+        catch(error) {
+            console.log(error);
+        }
+    }
+
+    ngOnInit(): void {
+        this.fetchCharacters();
     }
 }

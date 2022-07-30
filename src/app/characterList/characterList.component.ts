@@ -34,13 +34,12 @@ export class CharacterListComponent implements OnInit{
     constructor(private route: ActivatedRoute){
         this.route.params.subscribe(
             params => {
-                this._planet_id = params["id"] + 1;
+                this._planet_id = params["id"];
             }
         );
     }
 
     async fetchCharacters(){
-        console.log("Fetching Characters");
         try {
             let response : any = await fetch(`https://swapi.dev/api/planets/${this._planet_id}`);
             this._planet = await response.json();

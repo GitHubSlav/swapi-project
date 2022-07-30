@@ -1,7 +1,7 @@
+<a [routerLink]="routerLink">
 <div class="planet"
     (mouseenter)="OnMouseEnter()" 
-    (mouseleave)="OnMouseLeave()"
-    (click)="OnClick()">
+    (mouseleave)="OnMouseLeave()">
     <h1 [class.blinking-text]="isBlinking">{{planet_info.name}}</h1>
     <table>
         <tr>
@@ -38,5 +38,5 @@
         </tr>
     </table>
 </div>
-
+</a>
 

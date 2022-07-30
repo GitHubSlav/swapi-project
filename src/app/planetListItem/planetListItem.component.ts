@@ -9,7 +9,12 @@ import { Component, Input } from "@angular/core";
 export class PlanetListItemComponent {
     private _isBlinking : boolean = false;
 
+    @Input() planet_id : number;
     @Input() planet_info : any;
+
+    get routerLink(){
+        return ["planets", this.planet_id];
+    }
 
     get isBlinking(){
         return this._isBlinking;
@@ -21,9 +26,5 @@ export class PlanetListItemComponent {
 
     OnMouseLeave(){
         this._isBlinking = false;
-    }
-
-    OnClick(){
-        
     }
 }

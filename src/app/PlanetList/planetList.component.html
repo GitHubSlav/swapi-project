@@ -4,3 +4,6 @@
         [planet_info]="planet"
     ></planet-li>
 </div>
+<div *ngIf="!isLoaded">
+    <loading-bar></loading-bar>
+</div>

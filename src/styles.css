@@ -6,5 +6,26 @@ body{
 }
 
 html {
-    font-size: 20px;
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 760px) {
+    html {
+        font-size: 10px;
+    }
+
+    h1 {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    td {
+        font-size: 16px;
+    }
 }

@@ -10,6 +10,13 @@
     border-radius: 1rem;
 }
 
+@media (max-width: 760px) {
+    .character {
+        width: 25rem;
+        height: auto;
+    }
+}
+
 td {
     border: 1px solid #1AF;
     padding: 5px 10px;

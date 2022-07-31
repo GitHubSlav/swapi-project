@@ -2,5 +2,33 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 55rem;
+    width: 76rem;
+}
+
+@media (max-width: 1270px) {
+    .planet-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 50rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .planet-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 45rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .planet-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 30rem;
+    }
 }

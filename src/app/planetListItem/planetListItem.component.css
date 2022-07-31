@@ -1,6 +1,6 @@
 .planet {
     width: 20rem;
-    height: 22.5rem;
+    height: 25rem;
     margin-top: 2rem;
     padding: 0rem 2rem;
 
@@ -9,6 +9,19 @@
     background-color: #113;
     border-radius: 1rem;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .planet {
+        width: 17rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .planet {
+        width: 25rem;
+        height: auto;
+    }
 }
 
 .planet:hover {
